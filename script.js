@@ -6,105 +6,51 @@ document.getElementById('temperature-form').addEventListener('submit', function 
     let toUnit = document.getElementById('to-unit').value;
 
     let result;
-    let hasilLangkah;
-    let hasilLangkah2;
 
-    if (fromUnit === 'F' && toUnit === 'C') { //Fahrenheit ke Celcius
-        result = (temperature - 32) * 5/9;
-        hasilLangkah = temperature - 32;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°C</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Fahrenheit -> Celsius = (${temperature}°F - 32) * (5/9)</p>
-        <p>                            = ${hasilLangkah} * (5/9)</p>
-        <p>                            = ${result.toFixed(2)}°C</p>`;
-    } else if (fromUnit === 'F' && toUnit === 'R') { //Fahrenheit ke Reamur
-        result = (temperature - 32) * 4/9;
-        hasilLangkah = temperature - 32;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°R</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Fahrenheit -> Reamur = (${temperature}°F - 32) * (4/9)</p>
-        <p>                            = ${hasilLangkah} * (4/9)</p>
-        <p>                            = ${result.toFixed(2)}°R</p>`;
-    } else if (fromUnit === 'F' && toUnit === 'K') {//Fahrenheit ke Kelvin
-        result = (temperature - 32) * 5/9 + 273;
-        hasilLangkah = temperature - 32;
-        hasilLangkah2 = hasilLangkah*5/9;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°K</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Fahrenheit -> Kelvin = (${temperature}°F - 32) * (5/9) + 273</p>
-        <p>                            = ${hasilLangkah} * (5/9) + 273</p>
-        <p>                            = ${hasilLangkah2.toFixed(2)} + 273</p>
-        <p>                            = ${result.toFixed(2)}°K</p>`;
-    } else if (fromUnit === 'C' && toUnit === 'F') {//Celcius ke Fahrenheit
-        result = (temperature * 9 / 5) + 32;
-        hasilLangkah = temperature * 9/5;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°F</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Celcius -> Fahrenheit = (${temperature}°C * 9/5) + 32</p>
-        <p>                            = ${hasilLangkah.toFixed(2)} + 32</p>
-        <p>                            = ${result.toFixed(2)}°F</p>`;
-    } else if (fromUnit === 'C' && toUnit === 'R') {//Celcius ke Reamur
-        result = (temperature * 4 / 5);
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°R</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Celcius -> Reamur = (${temperature}°C * (4/5)</p>
-        <p>                            = ${result.toFixed(2)}°R</p>`;
-    } else if (fromUnit === 'C' && toUnit === 'K') {//Celcius ke Kelvin
-        result = temperature  + 273;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°K</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Celcius -> Kelvin = (${temperature}°C + 273</p>
-        <p>                            = ${result.toFixed(2)}°K</p>`;
-    } else if (fromUnit === 'R' && toUnit === 'F') {//Reamur ke Fahrenheit
-        result = (temperature * 9 / 4) + 32;
-        hasilLangkah = temperature * 9/4;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°F.</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Reamur -> Fahrenheit = (${temperature}°R * 9/4) + 32</p>
-        <p>                            = ${hasilLangkah.toFixed(2)} + 32</p>
-        <p>                            = ${result.toFixed(2)}°F</p>`;
-    } else if (fromUnit === 'R' && toUnit === 'C') {//Reamur ke Celcius
-        result = (temperature * 5 / 4);
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°C</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Reamur -> Celsius = (${temperature}°R * (5/4)</p>
-        <p>                            = ${result.toFixed(2)}°C</p>`;
-    } else if (fromUnit === 'R' && toUnit === 'K') {//Reamur ke Kelvin
-        result = (temperature * 5/4) + 273;
-        hasilLangkah = temperature * 5/4;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°K</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Reamur -> Kelvin = (${temperature}°R * 5/4) + 273</p>
-        <p>                            = ${hasilLangkah.toFixed(2)} + 273</p>
-        <p>                            = ${result.toFixed(2)}°K</p>`;
-    } else if (fromUnit === 'K' && toUnit === 'F') {//Kelvin ke Fahrenheit
-        result = (temperature - 273) * 9/5 + 32;
-        hasilLangkah = temperature - 273;
-        hasilLangkah2 = hasilLangkah*9/5;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°F</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Kelvin -> Fahrenheit = (${temperature}°K - 273) * (9/5) + 32</p>
-        <p>                            = ${hasilLangkah} * (9/5) + 32</p>
-        <p>                            = ${hasilLangkah2.toFixed(2)} + 32</p>
-        <p>                            = ${result.toFixed(2)}°F</p>`;
-    } else if (fromUnit === 'K' && toUnit === 'C') {//Kelvin ke Celcius
-        result = (temperature - 273);
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°C</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Kelvin -> Celcius = ${temperature}°K - 273</p>
-        <p>                            = ${result.toFixed(2)}°C</p>`;
-    } else if (fromUnit === 'K' && toUnit === 'R'){ //Kelvin ke Reamur
-        result = (temperature - 273) * 4/5;
-        hasilLangkah = temperature - 273;
-        document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°R</p>`;
-        document.getElementById('steps').innerHTML = 
-        `<p>Suhu Kelvin -> Reamur = (${temperature}°K - 273)) * (4/5)</p>
-        <p>                            = ${hasilLangkah} * (4/5)</p>
-        <p>                            = ${result.toFixed(2)}°R</p>`;
-    } else{
+    class Temperature {
+        constructor(name, unit, freezing, boiling)
+        {
+            this.name = name;
+            this.unit = unit;
+            this.freezing = freezing;
+            this.boiling = boiling;
+            this.scale = boiling - freezing;
+        }
+
+        convert = function(value, other)
+        {
+            return (other.scale / this.scale) * (value - this.freezing) + other.freezing;
+        }
+    }
+
+    types = [];
+    types['F'] = new Temperature("Fahrenheit", "F", 32, 212);
+    types['C'] = new Temperature("Celcius", "C", 0, 100);
+    types['Re'] = new Temperature("Réaumur", "Re", 0, 80);
+    types['K'] = new Temperature("Kelvin", "K", 273.15, 373.15);
+    types['R'] = new Temperature("Rankine", "R", 491.67, 671.64);
+    types['N'] = new Temperature("Newton", "N", 0, 33);
+    types['Rø'] = new Temperature("Rømer", "Rø", 7.5, 60);
+
+    if (toUnit === fromUnit)
+    {
         document.getElementById('result').innerHTML = `Harap pilih suhu yang sesuai untuk dikonversi (jangan menggunakan suhu yang sama!)`;
         document.getElementById('steps').innerHTML =`<p></p>`;
+        return;
     }
+
+    result = types[fromUnit].convert(temperature, types[toUnit]);
+    normalizeFreezing = temperature - types[fromUnit].freezing;
+    scaledValue = normalizeFreezing * (types[toUnit].scale / types[fromUnit].scale);
+    readjustFreezing = scaledValue + types[toUnit].freezing;
+
+    document.getElementById('result').innerHTML = `<p>${result.toFixed(2)}°${types[toUnit].unit}</p>`;
+    document.getElementById('steps').innerHTML = 
+    `<p>Suhu ${types[fromUnit].unit} ->  ${types[toUnit].unit} = (${temperature}°${types[fromUnit].unit} - ${types[fromUnit].freezing}) * ${(types[toUnit].scale / types[fromUnit].scale)}</p>
+    <p>                            = ${normalizeFreezing} * ${(types[toUnit].scale / types[fromUnit].scale).toFixed(2)}</p>
+    <p>                            = ${result.toFixed(2)}°${types[toUnit].unit}</p>`;
+
+        
 });
 
 document.getElementById('money-form').addEventListener('submit', function (e) {
