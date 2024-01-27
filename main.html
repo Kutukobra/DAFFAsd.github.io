@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="icon.png" alt="Icon" class="navbar-icon">
+            </a>
+            <div class="navbar-title">
+                <h1 class="navbar-title-text">Tugas Oprec Software Daffa Sayra Firdaus (Software)</h1>
+            </div>
+            <div class="navbar-links">
+                <a href="#temperature-container">Temperature Converter</a>
+                <a href="#money-container">Money Converter</a>
+            </div>
+        </div>
+    </nav>
+    <div class="converter-container">
+        <div class="temperature-container container" id="temperature-container">
+            <h1>Temperature Converter 🌡️🧪</h1>
+            <form id="temperature-form" class="converter-form">
+                            <label for="temperature">Masukkan angka temperatur:</label>
+            <input type="number" id="temperature" name="temperature" step="0.1" required>
+            <label for="from-unit">Pilih Suhu yang Akan Diubah:</label>
+            <select id="from-unit" name="from-unit">
+                <option value="F">Fahrenheit</option>
+                <option value="C">Celsius</option>
+                <option value="R">Reamur</option>
+                <option value="K">Kelvin</option>
+            </select>
+            <label for="to-unit">Pilih Hasil Suhu yang Diinginkan:</label>
+            <select id="to-unit" name="to-unit">
+                <option value="F">Fahrenheit</option>
+                <option value="C">Celsius</option>
+                <option value="R">Reamur</option>
+                <option value="K">Kelvin</option>
+            </select>
+            <button type="submit">Convert</button>
+            </form>
+        <label for="result" class="hasil">Hasil</label>
+        <div id="result" class="result"></div>
+        <label for="steps" class="hasil">Step Konversi Suhu</label>
+        <div id="steps" class="result"></div>
+        </div>
+
+        <div class="money-container container" id="money-container">
+            <h1>Money Converter 📊📈</h1>
+            <form id="money-form" class="converter-form">
+                           <label for="amount">Masukkan Angka Mata Uang:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+            <label for="from-currency">Pilih Mata Uang yang Akan Diubah:</label>
+            <select id="from-currency" name="from-currency">
+                <option value="USD">US Dollar (USD)</option>
+                <option value="IDR">Rupiah (IDR)</option>
+                <option value="JPY">Japanese Yen (JPY)</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+            </select>
+            <label for="to-currency">Pilih Hasil Mata Uang yang Diingkan:</label>
+            <select id="to-currency" name="to-currency">
+                <option value="USD">US Dollar (USD)</option>
+                <option value="IDR">Rupiah (IDR)</option>
+                <option value="JPY">Japanese Yen (JPY)</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+            </select>
+            <button type="submit">Convert</button>
+            </form>
+            <div id="money-result" class="result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
